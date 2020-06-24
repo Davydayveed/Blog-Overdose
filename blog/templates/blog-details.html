@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %} 
+            <div class="container">
+                <div class="breadcrumb-content text-center">
+                    <h2>blog details</h2>
+                    <ul>
+                        <li><a href="#">home</a></li>
+                        <li> blog details </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- shopping-cart-area start -->
+        <div class="blog-details pt-95 pb-100">
+            <div class="container">
+                <div class="row">
+                    {% for post in post %}
+                    <div class="col-12">
+                        <div class="blog-details-info">
+                            <div class="blog-meta"> 
+                                <ul>
+                                    <li>Fashion</li>
+                                    <li>{{ post.publish|timesince }} ago</li>
+                                </ul>
+                            </div>
+                            <h3> {{ post.title }} </h3>
+                            <img src="{{ post.thumbnail.url }}" alt="">
+                            <p> {{ post.body}} </p>
+                            <div class="blog-feature">
+                                <h5>Stanndard Featured</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+                                <p class="blog-pera-mrg">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+                                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+                            </div>
+                        </div>
+                        <div class="leave-area">
+                            <h4 class="blog-details-title">Leave your thought</h4>
+                            <form action="#">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="leave-form mb-20">
+                                                    <input placeholder="Name *" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="leave-form mb-20">
+                                                    <input placeholder="Email *" type="email">
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="leave-form mb-20">
+                                                    <input placeholder="Website" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="text-leave">
+                                            <textarea placeholder="Comment*"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="leave-btn">
+                                            <button class="submit btn-hover" type="submit"><i class="pe-7s-mail"></i> Send</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="blog-replay-wrapper">
+                            {% with comments.count as total_comments %}
+                            <h4 class="blog-details-title2">{{ total_comments }} comment{{ total_comments|pluralize }}</h4>
+                            {% endwith %}
+                            {% for comment in comments %}
+                        <div class="comment">
+                        <p class="info">
+                                Comment {{ forloop.counter }} by {{ comment.name }} {{ comment.created }}
+                        </p>
+                        {{ comment.body|linebreaks }}
+                        </div>
+                        {% empty %}
+                        <p>There are no comments yet.</p>
+                        {% endfor %}
+                        
+                        {% if new_comment %}
+                        <h2>Your comment has been added.</h2>
+                        {% else %}
+                         <h2>Add a new comment</h2>
+                         <form method="post">
+                         {{ comment_form.as_p }}
+                         {% csrf_token %}
+                         <p><input type="submit" value="Add comment"></p>
+                         </form>
+                        {% endif %}
+                        
+                            <div class="single-blog-replay">
+                                <div class="replay-img">
+                                    <a href="#"><img src="{% 'assets/img/blog/14.jpg'%} " alt=""></a>
+                                </div>
+                                <div class="replay-info-wrapper">
+                                    <div class="replay-info">
+                                        <div class="replay-name-date">
+                                            <h5><a href="#">Tayeb rayed</a></h5>
+                                            <span>July 15, 2016 at 2:39 am</span>
+                                        </div>
+                                        <div class="replay-btn">
+                                            <a href="#">Reply</a>
+                                        </div>
+                                    </div>
+                                    <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed.</p>
+                                </div>
+                            </div>
+                            <div class="single-blog-replay middle-blog-repley">
+                                <div class="replay-img">
+                                    <a href="#"><img src="assets/img/blog/15.jpg" alt=""></a>
+                                </div>
+                                <div class="replay-info-wrapper">
+                                    <div class="replay-info">
+                                        <div class="replay-name-date">
+                                            <h5><a href="#">JOHN NGUYEN</a></h5>
+                                            <span>July 15, 2016 at 2:39 am</span>
+                                        </div>
+                                        <div class="replay-btn">
+                                            <a href="#">Reply</a>
+                                        </div>
+                                    </div>
+                                    <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed.</p>
+                                </div>
+                            </div>
+                            <div class="single-blog-replay">
+                                <div class="replay-img">
+                                    <a href="#"><img src="assets/img/blog/16.jpg" alt=""></a>
+                                </div>
+                                <div class="replay-info-wrapper">
+                                    <div class="replay-info">
+                                        <div class="replay-name-date">
+                                            <h5><a href="#">JOHN NGUYEN</a></h5>
+                                            <span>July 15, 2016 at 2:39 am</span>
+                                        </div>
+                                        <div class="replay-btn">
+                                            <a href="#">Reply</a>
+                                        </div>
+                                    </div>
+                                    <p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- {% endfor %} -->
+                </div>
+            </div>
+        </div>
+        <!-- shopping-cart-area end -->
+{% endblock content %} 

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+            <div class="container">
+                <div class="breadcrumb-content text-center">
+                    <h2>blog page</h2>
+                    <ul>
+                        <li><a href="#">home</a></li>
+                        <li> blog </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- shopping-cart-area start -->
+        <div class="blog-area pt-95 pb-100">
+            <div class="container">
+                <div class="blog-mesonry">
+                    <div class="row grid">
+                        {% for post in post %}
+                        <div class="col-lg-4 col-md-6 grid-item">
+                            <div class="blog-wrapper mb-40">
+                               
+                                <div class="blog-img zoom">
+                                    <a href="{{ post.get_absolute_url }}"><img src="{{ post.thumbnail.url }}" alt=""></a>
+                                </div>
+                                <div class="blog-info-wrapper">
+                                    <div class="blog-meta">
+                                        <ul>
+                                            <!-- {% for cat in obj.categories.all %}
+                                            <a href="#">{{ cat }}</a></div>
+                                            {% endfor %} -->
+                                            {% for cat in obj.categories.all %}
+                                            <li><a href="#">{{ cat }} </a></li>
+                                            {% endfor %}
+
+                                            <li>{{ post.publish|timesince }} ago</li>
+                                        </ul>
+                                    </div>
+                                    <h4><a href="#">{{ post.title }}</a></h4>
+                                    <p> {{ post.body|truncatewords:"70"}} </p>
+                                    <a class="blog-btn btn-hover" href="{{ post.get_absolute_url }}">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                     </div>
+                </div>
+                <div class="pagination-style mt-20 text-center">
+                    <ul>
+                        {% if page.has_previous %}
+                        <li><a href="?page={{ page.previous_page_number }}"><i class="ti-angle-left"></i></a></li>
+                        {% endif %}
+                        
+                         <li class="active"><a href="?page={{ page.number }}">{{ page.number }}1</a></li>
+                      
+                        {% if page.has_next %}
+                        <li ><a href="?page={{ page.next_page_number }}"><i class="ti-angle-right"></i></a></li>
+                        {% endif %}
+                    </ul>
+                </div> 
+
+            </div>
+        </div>
+        <!-- shopping-cart-area end -->
+
+		
+		
+		
+		
+		
+
+  {% endblock content %}

@@ -11,12 +11,12 @@ from django.contrib.auth.models import User
 class Category(models.Model):
     title = models.CharField(max_length=20)
 
-   
+
     def __str__(self):
         return self.title
 
 class Banner(models.Model):
-    thumbnail = models.ImageField()
+   thumbnail = models.ImageField()
 
 
 
@@ -57,10 +57,10 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-         return reverse('post-detail', kwargs={
-             'id': self.id
-         })
- 
+        return reverse('blog_details',
+                       args=[
+                             self.publish.month,
+                             self.publish.day, self.slug])
 
 class Comment(models.Model):
     posts = models.ForeignKey(Post,
@@ -75,6 +75,6 @@ class Comment(models.Model):
 
     class Meta:
         ordering = ('created',)
-        
+
     def __str__(self):
         return f'Comment by {self.name} on {self.posts}'

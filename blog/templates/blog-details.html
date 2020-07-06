@@ -28,17 +28,16 @@
                             </div>
                             <h3> {{ post.title }} </h3>
                             <img src="{{ post.thumbnail.url }}" alt="">
-                            <p> {{ post.body}} </p>
                             <div class="blog-feature">
-                                <h5>Stanndard Featured</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-                                <p class="blog-pera-mrg">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
-                                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+                                <h5>{{ post.title }} </h5>
+                                <p> {{ post.body}} </p>
                             </div>
                         </div>
                         <div class="leave-area">
                             <h4 class="blog-details-title">Leave your thought</h4>
                             <form action="#">
+                                {% csrf_token %}
+
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="row">
@@ -101,7 +100,7 @@
                         
                             <div class="single-blog-replay">
                                 <div class="replay-img">
-                                    <a href="#"><img src="{% 'assets/img/blog/14.jpg'%} " alt=""></a>
+                                    <a href="#"><img src="{% static 'assets/img/blog/14.jpg'%} " alt=""></a>
                                 </div>
                                 <div class="replay-info-wrapper">
                                     <div class="replay-info">
@@ -118,7 +117,7 @@
                             </div>
                             <div class="single-blog-replay middle-blog-repley">
                                 <div class="replay-img">
-                                    <a href="#"><img src="assets/img/blog/15.jpg" alt=""></a>
+                                    <a href="#"><img src="{% static 'assets/img/blog/15.jpg'%}" alt=""></a>
                                 </div>
                                 <div class="replay-info-wrapper">
                                     <div class="replay-info">
@@ -135,7 +134,7 @@
                             </div>
                             <div class="single-blog-replay">
                                 <div class="replay-img">
-                                    <a href="#"><img src="assets/img/blog/16.jpg" alt=""></a>
+                                    <a href="#"><img src="{% static 'assets/img/blog/16.jpg'%}" alt=""></a>
                                 </div>
                                 <div class="replay-info-wrapper">
                                     <div class="replay-info">

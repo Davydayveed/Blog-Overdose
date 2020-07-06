@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'posts',
-    'newsletter'
+    'newsletter',
+    'product'
 ]
 
 MIDDLEWARE = [

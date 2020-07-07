@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% block title %} Product-details {% endblock %}
+
 
 {% load static %}
 
@@ -6,6 +8,15 @@
      
     <!--Main layout-->
     <main>
+      <div class="container">
+        <div class="breadcrumb-content text-center">
+          <h2>product details</h2>
+          <ul>
+                <li><a href="#">home</a></li>
+                <li> product details </li>
+              </ul>
+        </div>
+    </div>
         <!-- Container -->
         <div class="container px-lg-5">
             <!-- Content here -->
@@ -16,7 +27,7 @@
                     <div class=" view overlay z-depth-1-half zoom">
                         <!--Featured image -->
                         
-                        <img src="{% static 'assets/img/product-details/Lovely Smock Off Shoulder Blouse - I know you wanna kiss me_ Thank you for visiting CHUU.jpeg' %} " class="img-fluid  card-img-top" alt="Product-detail">
+                        <img src="{% static 'assets/img/product-details/IMG-20200609-WA0056.jpg' %} " class="img-fluid  card-img-top" alt="Product-detail">
 
                         <!-- <div class="mask rgba-brown-light "></div> -->
                       </div>
@@ -87,40 +98,56 @@
                       <table class="table table-sm table-borderless">
                         <tbody>
                           <tr>
-                            <!-- <td class="pl-0 pb-0 w-25">Quantity</td> -->
+                            <td class="pl-0 pb-0 w-25">Quantity</td>
                             <td class="pb-0">Select size</td>
                           </tr>
                           <tr>
-                            <!-- <td class="pl-0">
-                              <div class="">
+                            <td>
+                              <div class="def-number-input number-input safari_only">
                                 <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
                                 <input class="quantity" min="0" name="quantity" value="1" type="number">
                                 <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                               </div>
-                            </td> -->
-                            <td>
-                              <div class="mt-1">
-                                <div class="form-check form-check-inline pl-0">
-                                  <input type="radio" class="form-check-input" id="small" name="materialExampleRadios" checked="">
-                                  <label class="form-check-label small text-uppercase card-link-secondary" for="small">Small</label>
-                                </div>
-                                <div class="form-check form-check-inline pl-0">
-                                  <input type="radio" class="form-check-input" id="medium" name="materialExampleRadios">
-                                  <label class="form-check-label small text-uppercase card-link-secondary" for="medium">Medium</label>
-                                </div>
-                                <div class="form-check form-check-inline pl-0">
-                                  <input type="radio" class="form-check-input" id="large" name="materialExampleRadios">
-                                  <label class="form-check-label small text-uppercase card-link-secondary" for="large">Large</label>
-                                </div>
-                              </div>
+                              
+                              <!-- <div class="cart-plus-minus">
+                                <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box">
+                            </div> -->
+                             
+
                             </td>
+
+                            <td>
+                              <!-- Default inline 1-->
+                              <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample">
+                                <label class="custom-control-label" for="defaultInline1">Small</label>
+                              </div>
+
+                              <!-- Default inline 2-->
+                              <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input " id="defaultInline2" name="inlineDefaultRadiosExample" checked>
+                                <label class="custom-control-label" for="defaultInline2">Medium</label>
+                              </div>
+
+                              <!-- Default inline 3-->
+                              <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="defaultInline3" name="inlineDefaultRadiosExample">
+                                <label class="custom-control-label" for="defaultInline3">Large</label>
+                              </div>
+
+                            </td>
+
                           </tr>
                         </tbody>
                       </table>
                     </div>
-                    <button type="button" class="btn btn-black btn-md mr-1 mb-2 waves-effect waves-light">Buy now</button>
-                    <button type="button" class="btn btn-light btn-md mr-1 mb-2 waves-effect waves-light"><i class="fas fa-shopping-cart pr-2"></i>Add to
-                      cart</button>
+                    
+                    <div class="quickview-btn-cart">
+                      <a class="btn-hover-black btn-black" href="#">Buy now</a>
+                      <a class="btn-hover-light  " style="background-color:antiquewhite; color: #251f1f;" href="#"><i class="fas fa-shopping-cart pr-2"></i>add to cart</a>
+                  </div>
+
+
                   </div>
 
             </div>
@@ -134,15 +161,15 @@
                     <!-- Classic tabs -->
         <div class="classic-tabs">
   
-          <ul class="nav tabs-primary nav-justified" id="advancedTab" role="tablist">
+          <ul class="nav tabs-primary nav-justified" id="advancedTab" role="tablist" >
             <li class="nav-item">
-              <a class="nav-link show" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="false">Description</a>
+              <a style="color: #0f1317;" class="nav-link show" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="false">Description</a>
+            </li>
+            <li class="nav-item" >
+              <a style="color: #0f1317;"  class = "nav-link  " id="info-tab"  data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="false">Information</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="false">Information</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="true">Reviews </a>
+              <a  style="color: #0f1317;" class="nav-link active" id="reviews-tab"  data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="true">Reviews </a>
             </li>
           </ul>
           <br>
@@ -268,9 +295,12 @@
                   <input type="email" id="form77" class="form-control pr-6">
                   <label for="form77">Email</label>
                 </div>
-                <div class="text-right pb-2">
-                  <button type="button" class="btn btn-black waves-effect waves-light">Add a review</button>
-                </div>
+                <div class="quickview-btn-cart text-right pb-2  ">
+                  <a class="btn-hover-black btn-black  " href="#">Add a review</a>
+              </div>
+                <!-- <div class="text-right pb-2">
+                  <button type="button" class="btn btn-black waves-effect waves-light">/button>
+                </div> -->
               </div>
             </div>
           </div>
